@@ -1,0 +1,33 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	width: 100%;
+	height: 4em;
+	&.logo{
+		justify-content: flex-start;
+		background:url('img/edemocracia-logo.svg') no-repeat;
+	}
+	&.menu{
+		justify-content: flex-end;
+		font-size: 12;
+		font-weight: 500;
+		& > a {
+			justify-content: space-between;
+		}
+	}
+}
+
+.container {
+	display: grid;
+	
+}
