@@ -1,29 +1,24 @@
 $menu-text: #4B4D52;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 .navbar{
   display: flex;
   justify-content: space-around;  
   max-height: 3em;
-  margin: 2% 0% 0% 0%;
+  margin: 1% 0% 0% 0%;
+  padding: 0% 0% 1% 0%;
+  color: #FFF;
+  border: solid 2px ;
   & > .logo {
-    background: url('./pages/img/logo.svg') no-repeat;
-    min-width: 200px;
     align-content: flex-start;
+    width: 30px;
+    height: 30px;
   }
   & > .menu {
     align-content: space-evenly;
@@ -33,29 +28,28 @@ $menu-text: #4B4D52;
       font-weight: 500;
       color: $menu-text;
       text-decoration: none;
+      text-transform: uppercase;
       padding: 0% 2% 0% 2%;
       display: inline-flex;
+      color: rgba(75, 77, 82, 0.5);
+      &:active, &:visited, &:hover {
+        color: rgba(75, 77, 82, 1);
+      }
     }  
   }
   & > .logout {
     align-content: flex-end;
     & > a {
-      color: red;
+      color: #A41616;
       text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
     }
   }
-
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-line {
+  background-image: linear-gradient(to right, orange, green);
+  height: 2px;
+  width: auto;
+  margin-bottom: 2%;
 }

@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <nav class="navbar">
-        <img class="logo"></img>
+        <img src="./img/logo.svg" class="logo"></img>
         <div class="menu">
           <Link to="/">Inicio</Link>
           <Link to="/conta">Minha Conta</Link>
@@ -25,9 +25,10 @@ function App() {
           <Link to="/termos">Termos de uso</Link>
         </div>
         <div class="logout">
-          <Link to="/">Logout</Link>
+          <Link to="/">sair</Link>
         </div>
       </nav>
+      <div class="navbar-line"></div>
 
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
