@@ -11,7 +11,8 @@ import Typography from '@material-ui/core/Typography';
 
 import {ProfileCard} from '../../components/main/profile_card'
 import {PersonalInfo} from '../../components/main/personal_info'
-import {WikilegisCard} from '../../components/main/wikilegis'
+import WikilegisCard from '../../components/main/wikilegis'
+
 
 const useStyles = makeStyles(theme => ({
     root: {
