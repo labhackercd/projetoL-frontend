@@ -31,7 +31,7 @@ function App() {
               <Link to="/">sair</Link>
             </div>
           </nav>
-        <div class="navbar-line"></div>
+        <div className="navbar-line"></div>
 
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
