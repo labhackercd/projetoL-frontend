@@ -1,0 +1,55 @@
+$menu-text: #4B4D52;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-around;  
+  max-height: 3em;
+  margin: 1% 0% 0% 0%;
+  padding: 0% 0% 1% 0%;
+  color: #FFF;
+  border: solid 2px ;
+  & > .logo {
+    align-content: flex-start;
+    width: 30px;
+    height: 30px;
+  }
+  & > .menu {
+    align-content: space-evenly;
+    white-space: nowrap;
+    & > a {
+      font-family: 'Roboto';
+      font-weight: 500;
+      color: $menu-text;
+      text-decoration: none;
+      text-transform: uppercase;
+      padding: 0% 2% 0% 2%;
+      display: inline-flex;
+      color: rgba(75, 77, 82, 0.5);
+      &:active, &:visited, &:hover {
+        color: rgba(75, 77, 82, 1);
+      }
+    }  
+  }
+  & > .logout {
+    align-content: flex-end;
+    & > a {
+      color: #A41616;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+}
+.navbar-line {
+  background-image: linear-gradient(to right, orange, green);
+  height: 2px;
+  width: auto;
+  margin-bottom: 2%;
+}
