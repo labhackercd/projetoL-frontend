@@ -4,11 +4,14 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+
 import Typography from '@material-ui/core/Typography';
 
 import {ProfileCard} from '../../components/main/profile_card'
 import {PersonalInfo} from '../../components/main/personal_info'
-
+import {WikilegisCard} from '../../components/main/wikilegis'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -77,16 +80,27 @@ class Main extends React.Component {
               <Box width="90%" mx="auto" pt={10}>
                 <Grid container spacing={5}>
                     <Grid item xs={3}>
-                          <Typography color="primary" variant="h5">Informações Pessoais</Typography>
+                          <Grid container>
+                              <Box display="flex" justifyContent="flex-start">
+                                <Grid item><Typography color="primary" variant="h5">Informações Pessoais</Typography></Grid>
+                                <Grid item><IconButton aria-label="help" size="small"><HelpOutlineIcon /></IconButton></Grid>                            
+                              </Box>
+                          </Grid>
                       </Grid>
                       <Grid item xs={9}>
-                          <Typography color="primary" variant="h5">Suas últimas participações</Typography>
+                          <Grid container>
+                              <Box display="flex" justifyContent="flex-start">
+                                <Grid item><Typography color="primary" variant="h5">Suas últimas participações</Typography></Grid>
+                                <Grid item><IconButton aria-label="help" size="small"><HelpOutlineIcon /></IconButton></Grid>                            
+                              </Box>
+                          </Grid>
                       </Grid>
                       <Grid item xs={3}>
                           <Paper className={classes.paper}><PersonalInfo></PersonalInfo></Paper>
                       </Grid>
                       <Grid item xs={3}>
-                          <Paper className={classes.paper}>wikilegis</Paper>
+                          <Paper className={classes.paper}><WikilegisCard></WikilegisCard></Paper>
+                      
                       </Grid>
                       <Grid item xs={6}>
                         <Grid container spacing={6}>

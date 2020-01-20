@@ -48,7 +48,7 @@ export function ProfileCard(props) {
     const classes = useStyles();
 
     return (
-        <Box width="60%" mx="auto">
+        <Box width="60%" mx="auto" pt={3}>
             <Grid container spacing={6}>
                 <ThemeProvider theme={theme}>
                     <Grid item xs={4}>

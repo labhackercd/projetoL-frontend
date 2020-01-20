@@ -79,16 +79,35 @@ export function PersonalInfo(props) {
                 <Grid item xs={2}>
                             <Avatar alt="Remy Sharp" src="" className={classes.small}/>
                 </Grid>
-                <Grid item xs={8}>
-                </Grid>
-                <Grid item xs={2}>
-                    <Typography variant="caption" color="primary">minha conta</Typography>
+                <Grid item xs={10}>
+                    <Box display="flex" justifyContent="flex-end" pt={2}>
+                        <Typography variant="caption" display="inline" color="primary" align="right">minha conta</Typography>
+                    </Box>
                 </Grid>
             </Grid>
         </Box>
         <Box width="90%" mx="auto" pt={3} mb={3}>  
             <Grid container spacing={1}>
-                
+                <Grid item xs={12}>
+                  <Paper className={classes.paper}>
+                    <Grid container wrap="nowrap" spacing={2}>
+                      <Grid item xs={9} zeroMinWidth>
+                          <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
+                              <b>FOTO</b>
+                          </Typography>
+                          <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
+                              Personalização da sua conta
+                          </Typography>
+                      </Grid>
+                      <Grid item xs={2}>
+                          <Box display="flex" justifyContent="flex-end">
+                            <Avatar alt="Remy Sharp" src="https://i.pravatar.cc/500" className={classes.small}/>
+                          </Box>  
+                      </Grid>
+                    </Grid>
+                  </Paper>
+                </Grid>
+
                 <Grid item xs={12}>
                   <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
