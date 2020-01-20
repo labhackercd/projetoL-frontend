@@ -25,26 +25,7 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 import 'typeface-roboto';
 
-const theme = createMuiTheme({
-    palette: {
-        primary: { main: '#4B4D52' },
-    },
-    typography: {
-        fontStyle:'typeface-roboto',
 
-        subtitle1: {
-            fontSize: 14,
-            
-        },
-        body1: {
-            fontWeight: 500,
-        },
-        button: {
-          fontStyle: 'italic',
-          marginLeft: 16
-        },
-    },
-  });
   
 const useStyles = makeStyles(theme => ({
     root: {
@@ -101,14 +82,14 @@ function CardItem(props){
                         <CheckRoundedIcon  fontSize="large" style={{ color: green[500] }}></CheckRoundedIcon>
                     ) : (
                         <HighlightOffIcon  fontSize="large" style={{ color: red[500] }}></HighlightOffIcon>
-                    )}
-                        
+                    )}     
                     </Box>
                 </Grid>
             </Grid>
         </Paper>
     )
 }
+
 
 
 export function WikilegisCard() {
@@ -124,6 +105,14 @@ export function WikilegisCard() {
         },
         {
             titulo:"PL 9241/2015",
+            votouAFavor:false
+        },    
+        {
+            titulo:"PL 9230/2013",
+            votouAFavor:true
+        },
+        {
+            titulo:"PL 9237/2015",
             votouAFavor:false
         },    
     ];
