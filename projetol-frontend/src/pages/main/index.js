@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
@@ -15,13 +15,9 @@ import WikilegisCard from '../../components/main/wikilegis'
 import PautaParticipativaCard from '../../components/main/pauta'
 import InterativasCard from '../../components/main/interativas'
 
-import { Card } from '@material-ui/core';
-import CardMedia from '@material-ui/core/CardMedia';
-import Image from 'material-ui-image'
 import banner from './banner.svg';
-import { green, blue } from '@material-ui/core/colors';
-import Icon from '@material-ui/core/Icon';
 import SettingsIcon from '@material-ui/icons/Settings';
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
 class Main extends React.Component {
     
@@ -32,7 +28,7 @@ class Main extends React.Component {
           flexGrow: 1,
         },
         paper: {
-          padding: theme.spacing(6),
+          padding: theme.spacing(7),
           textAlign: 'center',
           color: theme.palette.text.secondary,
         },
@@ -49,6 +45,7 @@ class Main extends React.Component {
       const theme = createMuiTheme({
         palette: {
             primary: { main: '#4B4D52' },
+            secondary:{ main: '#FFFFFF'}
         },
         typography: {
             fontFamily:'typeface-roboto',
@@ -64,6 +61,14 @@ class Main extends React.Component {
             h4:{
               fontWeight:300,
               fontSize:'18px',
+            },
+            h5:{
+              fontWeight:300,
+              fontSize:'20px',
+            },
+            h6:{
+              fontWeight:400,
+              fontSize:'20px',
             }
         },
       });
@@ -80,7 +85,7 @@ class Main extends React.Component {
                     <Grid item xs={9}>
         
                           <Box display="flex" justifyContent="center" width={1}>
-                            <img src={banner} style={{ height: "100%", width: "100%"}}/>
+                            <img src={banner} style={{ height: "100%", width: "100%"}} alt="Banner boas vindas"/>
                           </Box>
 
                     </Grid>
@@ -124,7 +129,26 @@ class Main extends React.Component {
                                 <Paper className={classes.paper}><PautaParticipativaCard></PautaParticipativaCard></Paper>
                             </Grid>
                             <Grid item xs={4}>
-                                <Paper className={classes.paper} style={{height:"100%",backgroundImage:`url(https://imgur.com/BLbBhMK)`}}>Dados seguros</Paper>
+                                <Paper className={classes.paper}>
+                                  <Box borderRadius="borderRadius" bgcolor="#2DA965" display="flex" justifyContent="center" width={1} height="100%">
+                                      <Grid container>
+                                        <Grid item xs={12}>
+                                          <Box display="flex" mt={1} justifyContent="center" width={1}>
+                                              <CheckCircleOutlineIcon style={{ fontSize: 50, color:"#FFFFFF" }} size="large"></CheckCircleOutlineIcon>
+                                          </Box>
+                                            
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Box mt={2} mb={3} ml={3} width="100%" display="flex" justifyContent="flex-start">
+                                                <Typography variant="h6" color="secondary"><b>Seus dados</b><br></br><b>estão seguros</b></Typography>
+          
+                                            </Box>
+                                              
+                                        </Grid>
+                                      </Grid>
+                                  </Box>
+
+                                </Paper>
                             </Grid>
                             <Grid item xs={12}>
                                 <Paper className={classes.paper}><InterativasCard></InterativasCard></Paper>

@@ -6,7 +6,6 @@ import { withStyles } from '@material-ui/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import { green,red } from '@material-ui/core/colors';
 import Badge from '@material-ui/core/Badge';
@@ -117,9 +116,11 @@ class WikilegisCard extends React.Component {
 
     // Get data from the api using graphql
     getWikilegisApiData(){
+        console.log("Obtendo dados Wikilegis")
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const targetUrl= "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=%7B%0A%20%20user(id%3A%206)%20%7B%0A%20%20%20%20firstName%0A%20%20%20%20lastName%0A%20%20%20%20profile%20%7B%0A%20%20%20%20%20%20gender%0A%20%20%20%20%20%20avatar%0A%20%20%20%20%7D%0A%20%20%20%20votes%20%7B%0A%20%20%20%20%20%20opinionVote%0A%20%20%20%20%7D%0A%20%20%20%20suggestions%20%7B%0A%20%20%20%20%20%20content%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A"
-        const targetUrl2 = "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=query%7Busers%7BfirstName%7D%7D%E2%80%8E%E2%80%8F"
+        //const targetUrl2 = "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=query%7Busers%7BfirstName%7D%7D%E2%80%8E%E2%80%8F"
+        
         fetch(proxyUrl+targetUrl, {
             method: 'GET',
 
@@ -143,7 +144,7 @@ class WikilegisCard extends React.Component {
                     <Grid item xs={2}>
                             <div className={classes.banner}>            
                               <Icon className={classes.iconRoot}>
-                                <img className={classes.imageIcon} src={wikilegisLogo}/>
+                                <img className={classes.imageIcon} src={wikilegisLogo} alt="Logo Wikilegis"/>
                               </Icon>
                             </div>
                     </Grid>

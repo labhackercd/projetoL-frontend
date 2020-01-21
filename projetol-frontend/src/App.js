@@ -19,7 +19,7 @@ function App() {
     <Router>
         <div>
           <nav className="navbar">
-            <img src={logo} className="logo"></img>
+            <img src={logo} className="logo" alt="Logo e-Democracia"></img>
             <div className="menu">
               <Link to="/">Inicio</Link>
               <Link to="/conta">Minha Conta</Link>

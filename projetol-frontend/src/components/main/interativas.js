@@ -11,9 +11,6 @@ import Paper from '@material-ui/core/Paper';
 import Icon from '@material-ui/core/Icon';
 import interativaLogo from './audiencias_logo.png'
 
-import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
-import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
-
 import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
 
 const useStyles = theme => ({
@@ -101,7 +98,7 @@ class InterativasCard extends React.Component {
                     <Grid item xs={2}>
                             <div className={classes.banner}>            
                               <Icon className={classes.iconRoot}>
-                                <img className={classes.imageIcon} src={interativaLogo}/>
+                                <img className={classes.imageIcon} src={interativaLogo} alt="Logo Audiências Interativas"/>
                               </Icon>
                             </div>
                     </Grid>

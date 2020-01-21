@@ -7,8 +7,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { green,red } from '@material-ui/core/colors';
-import Badge from '@material-ui/core/Badge';
 
 import Icon from '@material-ui/core/Icon';
 import pautaLogo from './pauta_logo.svg'
@@ -104,11 +102,11 @@ class PautaParticipativaCard extends React.Component {
             <Box width="90%" mx="auto">
                 <Grid container spacing={6}>
                     <Grid item xs={2}>
-                            <div className={classes.banner}>            
-                              <Icon className={classes.iconRoot}>
-                                <img className={classes.imageIcon} src={pautaLogo}/>
-                              </Icon>
-                            </div>
+                        <Box className={classes.banner} >
+                            <Icon className={classes.iconRoot}>
+                                <img className={classes.imageIcon} src={pautaLogo} alt="Logo Pauta"/>
+                            </Icon>
+                        </Box>
                     </Grid>
                     <Grid item xs={10}>
                         <Box display="flex" justifyContent="flex-end" pt={2}>
