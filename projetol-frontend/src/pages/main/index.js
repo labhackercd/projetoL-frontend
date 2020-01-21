@@ -12,13 +12,16 @@ import Typography from '@material-ui/core/Typography';
 import {ProfileCard} from '../../components/main/profile_card'
 import {PersonalInfo} from '../../components/main/personal_info'
 import WikilegisCard from '../../components/main/wikilegis'
+import PautaParticipativaCard from '../../components/main/pauta'
+import InterativasCard from '../../components/main/interativas'
+
 import { Card } from '@material-ui/core';
 import CardMedia from '@material-ui/core/CardMedia';
 import Image from 'material-ui-image'
 import banner from './banner.svg';
 import { green, blue } from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
-
+import SettingsIcon from '@material-ui/icons/Settings';
 
 class Main extends React.Component {
     
@@ -32,10 +35,6 @@ class Main extends React.Component {
           padding: theme.spacing(6),
           textAlign: 'center',
           color: theme.palette.text.secondary,
-        },
-        banner:{
-          width: '691px',
-          height: '99px'
         },
         imageIcon: {
           height: '150%',
@@ -76,13 +75,14 @@ class Main extends React.Component {
               <Box width="90%" mx="auto">
                 <Grid container spacing={5}>
                     <Grid item xs={3}>
-                        <Box><ProfileCard></ProfileCard></Box>
+                        <Box pt={5}><ProfileCard></ProfileCard></Box>
                     </Grid>
                     <Grid item xs={9}>
+        
+                          <Box display="flex" justifyContent="center" width={1}>
+                            <img src={banner} style={{ height: "100%", width: "100%"}}/>
+                          </Box>
 
-                    <Icon className={classes.iconRoot}>
-                      <img className={classes.imageIcon} src={banner}/>
-                    </Icon>
                     </Grid>
                 </Grid>
               </Box>
@@ -96,11 +96,18 @@ class Main extends React.Component {
                               </Box>
                           </Grid>
                       </Grid>
-                      <Grid item xs={9}>
+                      <Grid item xs={8}>
                           <Grid container>
                               <Box display="flex" justifyContent="flex-start">
                                 <Grid item><Typography color="primary" variant="h5">Suas últimas participações</Typography></Grid>
                                 <Grid item><IconButton aria-label="help" size="small"><HelpOutlineIcon /></IconButton></Grid>                            
+                              </Box>
+                          </Grid>
+                      </Grid>
+                      <Grid item xs={1}>
+                          <Grid container>
+                              <Box display="flex" justifyContent="flex-end">
+                                <Grid item><IconButton aria-label="help" size="small"><SettingsIcon /></IconButton></Grid>                            
                               </Box>
                           </Grid>
                       </Grid>
@@ -114,13 +121,13 @@ class Main extends React.Component {
                       <Grid item xs={6}>
                         <Grid container spacing={6}>
                             <Grid item xs={8}>
-                                <Paper className={classes.paper}>PAUTA</Paper>
+                                <Paper className={classes.paper}><PautaParticipativaCard></PautaParticipativaCard></Paper>
                             </Grid>
                             <Grid item xs={4}>
-                                <Paper className={classes.paper}>Dados seguros</Paper>
+                                <Paper className={classes.paper} style={{height:"100%",backgroundImage:`url(https://imgur.com/BLbBhMK)`}}>Dados seguros</Paper>
                             </Grid>
                             <Grid item xs={12}>
-                                <Paper className={classes.paper}>Interativas</Paper>
+                                <Paper className={classes.paper}><InterativasCard></InterativasCard></Paper>
                             </Grid>
                         </Grid>
                       </Grid>
