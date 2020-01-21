@@ -12,18 +12,12 @@ import Typography from '@material-ui/core/Typography';
 import {ProfileCard} from '../../components/main/profile_card'
 import {PersonalInfo} from '../../components/main/personal_info'
 import WikilegisCard from '../../components/main/wikilegis'
-
-
-const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-  }));
+import { Card } from '@material-ui/core';
+import CardMedia from '@material-ui/core/CardMedia';
+import Image from 'material-ui-image'
+import banner from './banner.svg';
+import { green, blue } from '@material-ui/core/colors';
+import Icon from '@material-ui/core/Icon';
 
 
 class Main extends React.Component {
@@ -39,6 +33,17 @@ class Main extends React.Component {
           textAlign: 'center',
           color: theme.palette.text.secondary,
         },
+        banner:{
+          width: '691px',
+          height: '99px'
+        },
+        imageIcon: {
+          height: '150%',
+          width:'auto'
+        },
+        iconRoot: {
+          textAlign: 'center'
+        }
         
       }));
 
@@ -74,7 +79,10 @@ class Main extends React.Component {
                         <Box><ProfileCard></ProfileCard></Box>
                     </Grid>
                     <Grid item xs={9}>
-                        <Paper>></Paper>
+
+                    <Icon className={classes.iconRoot}>
+                      <img className={classes.imageIcon} src={banner}/>
+                    </Icon>
                     </Grid>
                 </Grid>
               </Box>

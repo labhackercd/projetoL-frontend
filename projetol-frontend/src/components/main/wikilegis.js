@@ -13,6 +13,8 @@ import Badge from '@material-ui/core/Badge';
 
 import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import Icon from '@material-ui/core/Icon';
+import wikilegisLogo from './wikilegis_logo.svg'
 
 const useStyles = theme => ({
     root: {
@@ -35,7 +37,13 @@ const useStyles = theme => ({
     customBadge: {
         backgroundColor: "#2DA965",
         color: "green"
-    }
+    },
+    imageIcon: {
+        height: '45px',
+      },
+      iconRoot: {
+        textAlign: 'center'
+      }
 });
 
 
@@ -107,6 +115,24 @@ class WikilegisCard extends React.Component {
             ] };
         }
 
+    // Get data from the api using graphql
+    getWikilegisApiData(){
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const targetUrl= "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=%7B%0A%20%20user(id%3A%206)%20%7B%0A%20%20%20%20firstName%0A%20%20%20%20lastName%0A%20%20%20%20profile%20%7B%0A%20%20%20%20%20%20gender%0A%20%20%20%20%20%20avatar%0A%20%20%20%20%7D%0A%20%20%20%20votes%20%7B%0A%20%20%20%20%20%20opinionVote%0A%20%20%20%20%7D%0A%20%20%20%20suggestions%20%7B%0A%20%20%20%20%20%20content%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A"
+        const targetUrl2 = "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=query%7Busers%7BfirstName%7D%7D%E2%80%8E%E2%80%8F"
+        fetch(proxyUrl+targetUrl, {
+            method: 'GET',
+
+          }).then(res => res.json())
+            .then(data => console.log({ data }));
+    }
+
+    componentDidMount(){
+        //make call
+        console.log("montou");
+        this.getWikilegisApiData();
+    }
+
     render(){
         const { classes } = this.props;
 
@@ -115,7 +141,11 @@ class WikilegisCard extends React.Component {
             <Box width="90%" mx="auto">
                 <Grid container spacing={6}>
                     <Grid item xs={2}>
-                        <Avatar alt="Foto de Perfil" src="" className={classes.small}/>
+                            <div className={classes.banner}>            
+                              <Icon className={classes.iconRoot}>
+                                <img className={classes.imageIcon} src={wikilegisLogo}/>
+                              </Icon>
+                            </div>
                     </Grid>
                     <Grid item xs={10}>
                         <Box display="flex" justifyContent="flex-end" pt={2}>
@@ -127,9 +157,9 @@ class WikilegisCard extends React.Component {
             <Box width="90%" mx="auto" pt={3} mb={3}>  
                 <Grid container spacing={1}>
                     {
-                        this.state.listaProjetosdeLei.map((lei, key) =>
-                        <Grid item xs={12}>
-                            <CardItem projetoDeLei={lei} classe={classes}></CardItem>
+                        this.state.listaProjetosdeLei.map((lei) =>
+                        <Grid key={lei.titulo} item xs={12}>
+                            <CardItem  projetoDeLei={lei} classe={classes}></CardItem>
                         </Grid>
                         )
                     }
