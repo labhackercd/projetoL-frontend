@@ -79,29 +79,39 @@ class Main extends React.Component {
           <ThemeProvider theme={theme}>
               <Box width="90%" mx="auto">
                 <Grid container spacing={5}>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} sm={12} md={3} lg={3}>
+                      
                         <Box pt={5}><ProfileCard></ProfileCard></Box>
                     </Grid>
-                    <Grid item xs={9}>
-        
-                          <Box display="flex" justifyContent="center" width={1}>
-                            <img src={banner} style={{ height: "100%", width: "100%"}} alt="Banner boas vindas"/>
+   
+                    <Grid item xs={0} sm={9} md={9} lg={9}>
+                         <Box width={1} display={{ xs: 'none', md: 'block' }}>
+                            <Box display="flex" justifyContent="center" width={1} >
+                              <img src={banner} style={{ height: "100%", width: "100%"}} alt="Banner boas vindas"/>
+                            </Box>
                           </Box>
-
                     </Grid>
+                    
+
                 </Grid>
               </Box>
-              <Box width="90%" mx="auto" pt={10}>
+              <Box width="90%" mx="auto" >
                 <Grid container spacing={5}>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} sm={12} md={3} lg={3}>
                           <Grid container>
-                              <Box display="flex" justifyContent="flex-start">
-                                <Grid item><Typography color="primary" variant="h5">Informações Pessoais</Typography></Grid>
-                                <Grid item><IconButton aria-label="help" size="small"><HelpOutlineIcon /></IconButton></Grid>                            
-                              </Box>
+                            <Grid item xs={12}>
+                                <Box display="flex" justifyContent="flex-start">
+                                  <Grid item><Typography color="primary" variant="h5">Informações Pessoais</Typography></Grid>
+                                  <Grid item><IconButton aria-label="help" size="small"><HelpOutlineIcon /></IconButton></Grid>                            
+                                </Box>
+                            </Grid>
+                            <Grid item xs={12}>
+                             
+                            </Grid>
+
                           </Grid>
                       </Grid>
-                      <Grid item xs={8}>
+                      <Grid item xs={12} sm={12} md={8} lg={8}>
                           <Grid container>
                               <Box display="flex" justifyContent="flex-start">
                                 <Grid item><Typography color="primary" variant="h5">Suas últimas participações</Typography></Grid>
@@ -116,19 +126,19 @@ class Main extends React.Component {
                               </Box>
                           </Grid>
                       </Grid>
-                      <Grid item xs={3}>
+                      <Grid item xs={12} sm={12} md={3} lg={3} >
                           <Paper className={classes.paper}><PersonalInfo></PersonalInfo></Paper>
                       </Grid>
-                      <Grid item xs={3}>
+                      <Grid item xs={12} sm={12} md={3} lg={3}>
                           <Paper className={classes.paper}><WikilegisCard></WikilegisCard></Paper>
                       
                       </Grid>
-                      <Grid item xs={6}>
+                      <Grid item xs={12} sm={12} md={6} lg={6}>
                         <Grid container spacing={6}>
-                            <Grid item xs={8}>
+                            <Grid item xs={12} sm={12} md={8} lg={8}>
                                 <Paper className={classes.paper}><PautaParticipativaCard></PautaParticipativaCard></Paper>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid item xs={12} sm={12} md={4} lg={4} >
                                 <Paper className={classes.paper}>
                                   <Box borderRadius="borderRadius" bgcolor="#2DA965" display="flex" justifyContent="center" width={1} height="100%">
                                       <Grid container>
@@ -141,16 +151,14 @@ class Main extends React.Component {
                                         <Grid item xs={12}>
                                             <Box mt={2} mb={3} ml={3} width="100%" display="flex" justifyContent="flex-start">
                                                 <Typography variant="h6" color="secondary"><b>Seus dados</b><br></br><b>estão seguros</b></Typography>
-          
                                             </Box>
-                                              
                                         </Grid>
                                       </Grid>
                                   </Box>
 
                                 </Paper>
                             </Grid>
-                            <Grid item xs={12}>
+                            <Grid item xs={12} sm={12} md={12} lg={12}>
                                 <Paper className={classes.paper}><InterativasCard></InterativasCard></Paper>
                             </Grid>
                         </Grid>
