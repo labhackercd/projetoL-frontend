@@ -1,28 +1,16 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
-import { makeStyles } from '@material-ui/core/styles';
-import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
-import {withStyles } from "@material-ui/core";
-
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
 import Paper from '@material-ui/core/Paper';
-
-import FolderIcon from '@material-ui/icons/Folder';
-
-import { palette } from '@material-ui/system';
-
 
 import 'typeface-roboto';
 
-const theme = createMuiTheme({
+
+const THEME = createMuiTheme({
     palette: {
         primary: { main: '#4B4D52' },
     },
@@ -30,11 +18,12 @@ const theme = createMuiTheme({
         fontStyle:'typeface-roboto',
 
         subtitle1: {
-            fontSize: 14,
-            
+            fontSize: 13,
         },
         body1: {
-            fontWeight: 500,
+            fontSize: 15,
+            fontStyle:'bold',
+            textTransform:'uppercase'
         },
         button: {
           fontStyle: 'italic',
@@ -42,12 +31,6 @@ const theme = createMuiTheme({
         },
     },
   });
-  
-const StyledListItem = withStyles({
-  root: {
-    backgroundColor: "#FAF9F9",
-  },
-})(ListItem);
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -74,7 +57,8 @@ export function PersonalInfo(props) {
 
     return (
       <div className={classes.root}>
-        <Box width="90%" mx="auto">
+        <MuiThemeProvider theme={THEME}>
+          <Box width="90%" mx="auto">
             <Grid container spacing={6}>
                 <Grid item xs={2}>
                             <Avatar alt="Remy Sharp" src="" className={classes.small}/>
@@ -86,13 +70,13 @@ export function PersonalInfo(props) {
                 </Grid>
             </Grid>
         </Box>
-        <Box width="90%" mx="auto" pt={3} mb={3}>  
+          <Box width="90%" mx="auto" pt={3} mb={3}>  
             <Grid container spacing={1}>
                 <Grid item xs={12}>
                   <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
                       <Grid item xs={9} zeroMinWidth>
-                          <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
+                          <Typography style={{ marginLeft: 10 }} variant="body1" color="primary">
                               <b>FOTO</b>
                           </Typography>
                           <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
@@ -112,7 +96,7 @@ export function PersonalInfo(props) {
                   <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
                       <Grid item xs zeroMinWidth>
-                          <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
+                          <Typography style={{ marginLeft: 10 }} variant="body1" color="primary">
                               <b>Nome</b>
                           </Typography>
                           <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
@@ -127,7 +111,7 @@ export function PersonalInfo(props) {
                   <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
                       <Grid item xs zeroMinWidth>
-                          <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
+                          <Typography style={{ marginLeft: 10 }} variant="body1" color="primary">
                               <b>Data de Nascimento</b>
                           </Typography>
                           <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
@@ -142,7 +126,7 @@ export function PersonalInfo(props) {
                   <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
                       <Grid item xs zeroMinWidth>
-                          <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
+                          <Typography style={{ marginLeft: 10 }} variant="body1" color="primary">
                               <b>Gênero</b>
                           </Typography>
                           <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
@@ -158,7 +142,7 @@ export function PersonalInfo(props) {
                   <Paper className={classes.paper}>
                     <Grid container wrap="nowrap" spacing={2}>
                       <Grid item xs zeroMinWidth>
-                          <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
+                          <Typography style={{ marginLeft: 10 }} variant="body1" color="primary">
                               <b>Estado</b>
                           </Typography>
                           <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
@@ -170,6 +154,7 @@ export function PersonalInfo(props) {
                 </Grid>
             </Grid>
         </Box>
+        </MuiThemeProvider>
       </div>
     )
   }

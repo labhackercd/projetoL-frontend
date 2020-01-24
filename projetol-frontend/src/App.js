@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './eDemocracia_logo.svg'
 import './App.css';
 
 import './App.scss';
@@ -18,16 +18,16 @@ function App() {
   return (
     <Router>
         <div>
-          <nav class="navbar">
-            <img src="./img/logo.svg" class="logo"></img>
-            <div class="menu">
+          <nav className="navbar">
+            <img src={logo} className="logo" alt="Logo e-Democracia"></img>
+            <div className="menu">
               <Link to="/">Inicio</Link>
               <Link to="/conta">Minha Conta</Link>
               <Link to="/historico">Historico</Link>
               <Link to="/LGPD">Sobre a LGPD</Link>
               <Link to="/termos">Termos de uso</Link>
             </div>
-            <div class="logout">
+            <div className="logout">
               <Link to="/">sair</Link>
             </div>
           </nav>

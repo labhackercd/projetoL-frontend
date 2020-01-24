@@ -7,13 +7,12 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { green,red } from '@material-ui/core/colors';
-import Badge from '@material-ui/core/Badge';
 
-import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
-import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import Icon from '@material-ui/core/Icon';
-import wikilegisLogo from './wikilegis_logo.svg'
+import pautaLogo from './pauta_logo.svg'
+
+import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
+import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
 
 const useStyles = theme => ({
     root: {
@@ -51,32 +50,28 @@ export function CardItem(props){
     return (
         <Paper className={props.classe.paper}>
             <Grid container wrap="nowrap" spacing={1}>
-                <Grid item xs={1}>
-                    <Box pt={1} display="flex" justifyContent="flex-end" alignContent="center" justify="center">
-                        <Badge classes={{ badge: props.classe.customBadge }} variant="dot"></Badge>
-                    </Box>  
-                </Grid>
-                <Grid item xs={9} zeroMinWidth>
+
+                <Grid item xs={10} zeroMinWidth>
                     <Typography style={{ marginLeft: 10 }} variant="button" color="primary">
                         <b>{props.projetoDeLei.titulo}</b>
                     </Typography>
 
                     {props.projetoDeLei.votouAFavor ? (
                         <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
-                            Você votou a favor uma opinião
+                            Você votou a favor do projeto
                         </Typography>
                     ) : (
                         <Typography style={{ marginLeft: 10 }} variant="subtitle1" color="primary">
-                            Você votou contra uma opinião
+                            Você votou contra o projeto
                         </Typography>
                     )}
             </Grid>
                 <Grid item xs={2}>
                     <Box display="flex" justifyContent="flex-start">
                     {props.projetoDeLei.votouAFavor ? (
-                        <CheckRoundedIcon  fontSize="large" style={{ color: green[500] }}></CheckRoundedIcon>
+                        <ThumbUpOutlinedIcon  fontSize="large"></ThumbUpOutlinedIcon>
                     ) : (
-                        <HighlightOffIcon  fontSize="large" style={{ color: red[500] }}></HighlightOffIcon>
+                        <ThumbDownOutlinedIcon  fontSize="large"></ThumbDownOutlinedIcon>
                     )}     
                     </Box>
                 </Grid>
@@ -85,54 +80,19 @@ export function CardItem(props){
     )
 }
 
-class WikilegisCard extends React.Component {
+class PautaParticipativaCard extends React.Component {
 
     constructor(props) {
         super(props);
         // Don't call this.setState() here!
         this.state = { listaProjetosdeLei: [
                 {
-                    titulo:"PL 9622/2018",
+                    titulo:"PL 1876/2015",
                     votouAFavor:true
-                },
-                {
-                    titulo:"PL 9242/2016",
-                    votouAFavor:false
-                },
-                {
-                    titulo:"PL 9241/2015",
-                    votouAFavor:false
-                },    
-                {
-                    titulo:"PL 9230/2013",
-                    votouAFavor:true
-                },
-                {
-                    titulo:"PL 9237/2015",
-                    votouAFavor:false
-                },    
+                } 
             ] };
         }
 
-    // Get data from the api using graphql
-    getWikilegisApiData(){
-        console.log("Obtendo dados Wikilegis")
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const targetUrl= "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=%7B%0A%20%20user(id%3A%206)%20%7B%0A%20%20%20%20firstName%0A%20%20%20%20lastName%0A%20%20%20%20profile%20%7B%0A%20%20%20%20%20%20gender%0A%20%20%20%20%20%20avatar%0A%20%20%20%20%7D%0A%20%20%20%20votes%20%7B%0A%20%20%20%20%20%20opinionVote%0A%20%20%20%20%7D%0A%20%20%20%20suggestions%20%7B%0A%20%20%20%20%20%20content%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D%0A"
-        //const targetUrl2 = "https://tes.edemocracia.camara.leg.br/wikilegis/graphql/?query=query%7Busers%7BfirstName%7D%7D%E2%80%8E%E2%80%8F"
-        
-        fetch(proxyUrl+targetUrl, {
-            method: 'GET',
-
-          }).then(res => res.json())
-            .then(data => console.log({ data }));
-    }
-
-    componentDidMount(){
-        //make call
-        console.log("montou");
-        this.getWikilegisApiData();
-    }
 
     render(){
         const { classes } = this.props;
@@ -142,11 +102,11 @@ class WikilegisCard extends React.Component {
             <Box width="90%" mx="auto">
                 <Grid container spacing={6}>
                     <Grid item xs={2}>
-                            <div className={classes.banner}>            
-                              <Icon className={classes.iconRoot}>
-                                <img className={classes.imageIcon} src={wikilegisLogo} alt="Logo Wikilegis"/>
-                              </Icon>
-                            </div>
+                        <Box className={classes.banner} >
+                            <Icon className={classes.iconRoot}>
+                                <img className={classes.imageIcon} src={pautaLogo} alt="Logo Pauta"/>
+                            </Icon>
+                        </Box>
                     </Grid>
                     <Grid item xs={10}>
                         <Box display="flex" justifyContent="flex-end" pt={2}>
@@ -171,8 +131,8 @@ class WikilegisCard extends React.Component {
     }
 }
 
-WikilegisCard.propTypes = {
+PautaParticipativaCard.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(useStyles)(WikilegisCard);
+export default withStyles(useStyles)(PautaParticipativaCard);
